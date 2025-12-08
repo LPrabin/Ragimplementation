@@ -61,6 +61,36 @@ streamlit run frontend/app.py
 ```
 The web interface will open automatically in your browser (usually at `http://localhost:8501`).
 
+## Running with Docker(getting credentials error so not running)
+
+Alternatively, you can run the entire application using Docker:
+
+### 1. Build the Docker Image
+```bash
+docker build -t ragapp .
+```
+
+### 2. Run the Container
+```bash
+docker run -p 8000:8000 -p 8501:8501 \
+  -e GOOGLE_API_KEY=your_api_key_here \
+  -v $(pwd)/chroma_db:/app/chroma_db \
+  -v $(pwd)/ingestion_status.db:/app/ingestion_status.db \
+  ragapp
+```
+
+**Note**: 
+- Replace `your_api_key_here` with your actual Google API key
+- The `-v` flags mount volumes to persist your data (ChromaDB and SQLite database)
+- Backend will be available at `http://localhost:8000`
+- Frontend will be available at `http://localhost:8501`
+
+### 3. Using Docker Compose (Recommended)
+If you have a `docker-compose.yml` file:
+```bash
+docker-compose up
+```
+
 ## Usage Guide
 
 1.  **Create a Notebook**: Use the sidebar to enter a name and create a new notebook.
