@@ -1,0 +1,13 @@
+langchain
+langchain_community
+pypdf
+langchain_google_genai
+langchain_experimental
+langchain_core
+dotenv
+langchain_chroma
+langchain_text_splitters
+fastapi
+uvicorn
+streamlit
+python-multipart
