@@ -16,6 +16,7 @@ from langchain_core.runnables import RunnablePassthrough
 import sqlite3
 from datetime import datetime
 import config
+# from langchain.agents import tools 
 
 load_dotenv()
 
@@ -135,10 +136,11 @@ class RAGService:
         client = chromadb.PersistentClient(path=PERSIST_DIRECTORY)
         collection = client.get_collection(notebook_name)
         collection.delete(where={"source_name": resource_name})
-
-    def query_notebook(self, notebook_name: str, query: str):
+    
+    
+    def query_notebook(self, notebook_name: str, query: str,k : int):
         vectorstore = self._get_vectorstore(notebook_name)
-        retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+        retriever = vectorstore.as_retriever(search_kwargs={"k":k})
         docs = retriever.invoke(query)
         
         docs = retriever.invoke(query)

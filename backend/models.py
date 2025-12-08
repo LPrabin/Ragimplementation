@@ -11,11 +11,13 @@ class NotebookResponse(BaseModel):
 class QueryRequest(BaseModel):
     notebook_name: str
     query: str
+    k : int 
 
 class QueryResponse(BaseModel):
     answer: str
     sources: List[str]
     top3docs: List[str]
+     
 
 class ResourceResponse(BaseModel):
     id: str

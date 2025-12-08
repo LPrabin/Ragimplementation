@@ -132,4 +132,4 @@ def delete_resource(request: ResourceDeleteRequest):
 
 @app.post("/query", response_model=QueryResponse)
 def query_notebook(request: QueryRequest):
-    return rag_service.query_notebook(request.notebook_name, request.query)
+    return rag_service.query_notebook(request.notebook_name, request.query, request.k)
