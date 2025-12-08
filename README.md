@@ -115,3 +115,4 @@ docker-compose up
 ├── requirements.txt     # Dependencies
 └── application_flow.md  # Architecture Flow Description
 ```
+![Project Screenshot](Untitled Diagram.drawio (1).png)
