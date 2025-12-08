@@ -1,3 +1,4 @@
+from email.policy import default
 from fastapi import FastAPI, UploadFile, File, HTTPException , BackgroundTasks
 from typing import List
 import shutil
@@ -64,8 +65,8 @@ def add_resource(
     background_tasks: BackgroundTasks,
     notebook_name: str = Form(...), 
     files: List[UploadFile] = File(...),
-    chunk_size: int = Form,
-    chunk_overlap: int = Form
+    chunk_size: int = Form(default =1000),
+    chunk_overlap: int = Form(default =100)
 ):
 
     if notebook_name not in rag_service.list_notebooks():
@@ -101,6 +102,7 @@ def add_resource(
         task_id,
         chunk_size,
         chunk_overlap
+        
     )
     
             
