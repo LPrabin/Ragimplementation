@@ -4,10 +4,12 @@ pypdf
 langchain_google_genai
 langchain_experimental
 langchain_core
-dotenv
+python-dotenv
 langchain_chroma
 langchain_text_splitters
 fastapi
 uvicorn
 streamlit
 python-multipart
+langfuse
+autoevals

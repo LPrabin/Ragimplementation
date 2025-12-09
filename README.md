@@ -116,3 +116,19 @@ docker-compose up
 └── application_flow.md  # Architecture Flow Description
 ```
 ![Project Screenshot](flowchart.png)
+
+
+## Langfuse
+
+To use Langfuse, you need to set up the following environment variables:
+
+```bash
+export LANGFUSE_PUBLIC_KEY=your_public_key_here
+export LANGFUSE_SECRET_KEY=your_secret_key_here
+export LANGFUSE_BASE_URL=your_base_url_here
+```
+
+To run the application with Langfuse, you can use the following command:
+docker pull langfuse/langfuse
+cd langfuse
+docker compose up

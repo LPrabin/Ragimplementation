@@ -3,7 +3,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException , BackgroundTasks
 from typing import List
 import shutil
 import os
-from .models import NotebookRequest, NotebookResponse, QueryRequest, QueryResponse, ResourceResponse, ResourceDeleteRequest 
+from .models import NotebookRequest, NotebookResponse, QueryRequest, QueryResponse, ResourceResponse, ResourceDeleteRequest , QueryExperimentRequest
 from .rag_engine import RAGService
 from fastapi import Form
 import uuid
@@ -133,3 +133,13 @@ def delete_resource(request: ResourceDeleteRequest):
 @app.post("/query", response_model=QueryResponse)
 def query_notebook(request: QueryRequest):
     return rag_service.query_notebook(request.notebook_name, request.query, request.k)
+
+# @app.post("/query/eval")
+# def query_notebook(request: QueryEvalRequest):
+#     return rag_service.run_experiment(request.notebook_name, request.query, request.k, request.chunk_size)
+
+@app.post("/query/experiment")
+def query_notebook(request: QueryExperimentRequest):
+    return rag_service.run_experiment(request.notebook_name, request.dataset_name, request.chunk_size, request.chunk_overlap, request.k)
+
+
