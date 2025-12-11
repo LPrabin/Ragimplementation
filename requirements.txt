@@ -12,4 +12,12 @@ uvicorn
 streamlit
 python-multipart
 langfuse
+ragas
 autoevals
+rouge-score
+numpy
+datasets
+ragas 
+llama-index
+openai
+pandas
